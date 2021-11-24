@@ -51,6 +51,14 @@ public class BoardController {
 		return "redirect:/board";
 	}
 	
+	@PostMapping("pageView")
+	public String detail(Model model,String title, int idx) {
+		model.addAttribute("detail", bs.selectTitle(title,idx));
+		return "/pageView";
+	}
+
+	
+	
 	@PostMapping("updateContents")
 	public String updateContents(BoardVO boardvo) {
 		bs.updateContents(boardvo);

@@ -40,8 +40,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public BoardVO selectTitle(String title) {
-		return boardDAO.selectTitle(title);
+	public BoardVO selectTitle(String title,int idx) {
+		return boardDAO.selectTitle(title,idx);
 	}
 
 

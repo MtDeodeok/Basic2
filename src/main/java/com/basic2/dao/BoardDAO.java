@@ -13,5 +13,5 @@ public interface BoardDAO {
 	void updateContents(BoardVO boardvo);
 	void deleteContents(@Param("memberid")String memberid,@Param("idx") int idx);
 	List<BoardVO> selectAll();
-	BoardVO selectTitle(@Param("title") String title);
+	BoardVO selectTitle(@Param("title") String title,@Param("idx") int idx);
 }

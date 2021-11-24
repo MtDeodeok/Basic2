@@ -32,10 +32,10 @@
 		order by modifiyDate
 	</select>
 
-	<select id="selectTitle" parameterType="String" resultType="com.basic2.vo.BoardVO">
+	<select id="selectTitle" parameterType="com.basic2.vo.BoardVO" resultType="com.basic2.vo.BoardVO">
 		SELECT * FROM board
 		where
-		title=#{title}
+		title=#{title} and idx=#{idx}
 	</select>
 
 </mapper>

@@ -6,7 +6,26 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판</title>
-
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#boardList tr").on("click", function() {
+		var tdArr = new Array();
+		var tr = $(this)
+		var td = tr.children();
+		
+		if(td.eq(0).text()!="번호"){
+			var title = td.eq(1).text();
+			var idx = td.eq(0).text();
+	
+			$('input[id=titleMark]').val(title);
+			$('input[id=idxMark]').val(idx);
+			$("#detail").attr("action", "pageView");
+			$("#detail").submit();
+		}
+	});
+});	
+</script>
 </head>
 <body>
 	게시판
@@ -15,9 +34,9 @@
 			<c:when test="${sessionScope.memberID eq null}">
 			<p>Guest님 환영합니다.</p>
 		</c:when>
-			<c:otherwise>
-				<p>${memberID}님 환영합니다.</p>
-			</c:otherwise>
+		<c:otherwise>
+			<p>${memberID}님 환영합니다.</p>
+		</c:otherwise>
 		</c:choose>
 	</div>
 
@@ -34,8 +53,13 @@
 		</c:choose>
 	</div>
 	
+	<form method="post" id="detail">
+		<input type="hidden" id="titleMark" name="title">
+		<input type="hidden" id="idxMark" name="idx">
+	</form>
+	
 	<div>
-		<table border="1">
+		<table id="boardList" border="1">
 			<thead>
 				<tr>
 					<th>번호</th>

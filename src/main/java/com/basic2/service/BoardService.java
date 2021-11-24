@@ -9,5 +9,5 @@ public interface BoardService {
 	void updateContents(BoardVO boardvo);
 	void deleteContents(String memberid, int idx);
 	List<BoardVO> selectAll();
-	BoardVO selectTitle(String title);
+	BoardVO selectTitle(String title,int idx);
 }

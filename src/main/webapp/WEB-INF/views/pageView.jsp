@@ -28,15 +28,19 @@
 			<label>작성자 : </label><span id="memberid">${detail.memberid}</span>
 		</div>
 	</div>
-	
+	<div>
 	<c:if test="${memberID eq detail.memberid}">
 		<div>
 			<input type="button" onclick="btn1(this)" name="update" value="수정">
 			<input type="button" onclick="btn2(this)" name="delete" value="삭제">
 		</div>
 	</c:if>
-
 	<input type="button" onclick="location.href='/board'" value="취소">
+	</div>
+	
+	<div>
+	<jsp:include page="comment.jsp" flush="false"/>
+	</div>
 </form>
 </body>
 </html>

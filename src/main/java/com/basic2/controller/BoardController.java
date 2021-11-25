@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.basic2.service.BoardService;
+import com.basic2.service.CommentService;
 import com.basic2.vo.BoardVO;
 import com.basic2.vo.MemberVO;
 
@@ -18,6 +19,7 @@ import lombok.RequiredArgsConstructor;
 public class BoardController {
 	
 	private final BoardService bs;
+	private final CommentService cs;
 	
 	@GetMapping("/board")
 	public String board(HttpSession session, Model model) {
@@ -54,6 +56,7 @@ public class BoardController {
 	@PostMapping("pageView")
 	public String detail(Model model,String title, int idx) {
 		model.addAttribute("detail", bs.selectTitle(title,idx));
+		model.addAttribute("boardComment", cs.selectBoardComment(idx));
 		return "/pageView";
 	}
 
@@ -67,6 +70,7 @@ public class BoardController {
 	
 	@PostMapping("deleteContents")
 	public String deleteContents(String memberid, int idx) {
+		cs.deleteBoardComment(idx);
 		bs.deleteContents(memberid, idx);
 		return "redirect:/board";
 	}

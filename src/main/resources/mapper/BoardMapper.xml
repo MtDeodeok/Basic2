@@ -8,14 +8,14 @@
 	<!-- 글쓰기 -->
 	<insert id="createContents" parameterType="com.basic2.vo.BoardVO">
 		insert into
-		board(title, memberid, contents, writeDate,modifiyDate, state)
-		values(#{title},#{memberid},#{contents},#{writeDate},#{modifiyDate},0)
+		board(title, memberid, contents, writeDate,modifyDate, state)
+		values(#{title},#{memberid},#{contents},#{writeDate},#{modifyDate},0)
 	</insert>
 
 	<!-- 글 수정 -->
  	<update id="updateContents" parameterType="com.basic2.vo.BoardVO">
 		UPDATE board SET
-		title=#{title}, contents=#{contents}, modifiyDate=#{modifiyDate}
+		title=#{title}, contents=#{contents}, modifiyDate=#{modifyDate}
 		WHERE memberid=#{memberid} and idx=#{idx}
 	</update>
  
@@ -29,7 +29,6 @@
 	<select id="selectAll" resultType="com.basic2.vo.BoardVO">
 		SELECT * FROM board
 		where state=0
-		order by modifiyDate
 	</select>
 
 	<select id="selectTitle" parameterType="com.basic2.vo.BoardVO" resultType="com.basic2.vo.BoardVO">

@@ -66,6 +66,7 @@ $(document).ready(function() {
 					<th>제목</th>
 					<th>작성자</th>
 					<th>등록일</th>
+					<th>수정일</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -75,6 +76,7 @@ $(document).ready(function() {
 						<td>${board.title}</td>
 						<td>${board.memberid}</td>
 						<td>${board.writeDate}</td>
+						<td>${board.modifyDate}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

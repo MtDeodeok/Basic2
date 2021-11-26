@@ -9,7 +9,7 @@ public class CommentVO {
 	private int id;
 	private String comment;
 	private LocalDate writeDate;
-	private LocalDate modifiyDate;
+	private LocalDate modifyDate;
 	private String memberid;
 	private int boardidx;
 }

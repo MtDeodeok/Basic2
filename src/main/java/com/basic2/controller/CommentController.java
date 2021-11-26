@@ -35,7 +35,7 @@ public class CommentController {
 	
 	@PostMapping("updateComment")
 	public String updateComment(CommentVO commentvo) {
-		System.out.println(commentvo);
+		cs.updateComment(commentvo);
 		return "redirect:/board";
 	}
 	

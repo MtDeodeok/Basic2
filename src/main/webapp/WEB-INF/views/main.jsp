@@ -13,9 +13,20 @@
 	<div>
 		<c:choose>
 			<c:when test="${sessionScope.memberID eq null}">
+			<img src="/profileImg/null.jpg" />
 			<p>Guest님 환영합니다.</p>
-		</c:when>
+			</c:when>
 			<c:otherwise>
+				<div>
+					<c:choose>
+						<c:when test="${empty sessionScope.profile}">
+							<img src="/profileImg/null.jpg" />
+						</c:when>
+						<c:otherwise>
+							<img src="${sessionScope.profile}" />
+						</c:otherwise>
+					</c:choose>
+				</div>
 				<p>${memberID}님 환영합니다.</p>
 			</c:otherwise>
 		</c:choose>
@@ -30,6 +41,7 @@
 				<a href="/logout">LogOut</a>
 			</c:otherwise>
 		</c:choose>
+		<a href="/join">회원가입</a>
 	</div>
 </body>
 </html>

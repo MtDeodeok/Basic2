@@ -64,6 +64,7 @@ public class BoardController {
 	
 	@PostMapping("updateContents")
 	public String updateContents(BoardVO boardvo) {
+		System.out.println(boardvo);
 		bs.updateContents(boardvo);
 		return "redirect:/board";
 	}

@@ -20,13 +20,12 @@ public class CommentServiceImpl implements CommentService {
 	@Override
 	public void createComment(CommentVO commentvo) {
 		commentvo.setWriteDate(now);
-		commentvo.setModifiyDate(now);
+		commentvo.setModifyDate(now);
 		commentdao.createComment(commentvo);
 	}
 	@Override
 	public void updateComment(CommentVO commentvo) {
-		commentvo.setModifiyDate(now);
-		System.out.println(commentvo);
+		commentvo.setModifyDate(now);
 		commentdao.updateComment(commentvo);
 	}
 	

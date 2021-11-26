@@ -11,6 +11,6 @@ public class BoardVO {
 	private String memberid;
 	private String contents;
 	private LocalDate writeDate;
-	private LocalDate modifiyDate;
+	private LocalDate modifyDate;
 	private int state;
 }

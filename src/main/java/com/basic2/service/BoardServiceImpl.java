@@ -19,13 +19,13 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void createContents(BoardVO boardvo) {
 		boardvo.setWriteDate(now);
-		boardvo.setModifiyDate(now);
+		boardvo.setModifyDate(now);
 		boardDAO.createContents(boardvo);
 	}
 
 	@Override
 	public void updateContents(BoardVO boardvo) {
-		boardvo.setModifiyDate(now);
+		boardvo.setModifyDate(now);
 		boardDAO.updateContents(boardvo);
 	}
 
